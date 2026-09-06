@@ -1,0 +1,120 @@
+{
+  "theme": "light",
+  "brand": {
+    "name": "Aura Retouch",
+    "vibe": "Elegant, bright, luxury, trustworthy, editorial"
+  },
+  "typography": {
+    "headings": {
+      "family": "Playfair Display",
+      "weights": ["400", "500", "700"],
+      "description": "Editorial, elegant serif for all major headings. Never center by default. Use fluid scaling. Add 'tracking-tight' to large headings."
+    },
+    "body": {
+      "family": "Manrope",
+      "weights": ["300", "400", "500"],
+      "description": "Clean, highly readable geometric sans for body text and UI elements."
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-7xl font-serif tracking-tighter leading-[1.1]",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-serif tracking-tight leading-tight",
+      "h3": "text-xl sm:text-2xl font-serif tracking-tight",
+      "body": "text-base leading-relaxed text-muted-foreground font-sans",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-foreground font-sans"
+    }
+  },
+  "colors": {
+    "css_vars": {
+      "--background": "40 20% 98%",
+      "--foreground": "20 15% 10%",
+      "--card": "0 0% 100%",
+      "--card-foreground": "20 15% 10%",
+      "--popover": "0 0% 100%",
+      "--popover-foreground": "20 15% 10%",
+      "--primary": "20 15% 10%",
+      "--primary-foreground": "40 20% 98%",
+      "--secondary": "40 10% 90%",
+      "--secondary-foreground": "20 15% 10%",
+      "--muted": "40 10% 94%",
+      "--muted-foreground": "20 5% 40%",
+      "--accent": "40 15% 92%",
+      "--accent-foreground": "20 15% 10%",
+      "--border": "40 10% 85%",
+      "--radius": "0.3rem"
+    },
+    "description": "Warm bone-white background (bright luxury) with deep charcoal/ink black for high contrast. Editorial aesthetic, avoiding stark pure white or pure black."
+  },
+  "visual_enhancers": {
+    "surfaces": {
+      "cards": "Flat backgrounds, 1px subtle border-border, no heavy shadows. Use soft diffuse ambient shadows only on hover (e.g. shadow-lg shadow-black/5).",
+      "glassmorphism": "Used for sticky header and floating chat widget. backdrop-blur-xl bg-background/70 border border-border/50.",
+      "inputs": "Editorial feel: thin 1px all-around borders or bottom-border only. No thick focus rings; use border-foreground on focus."
+    },
+    "spacing": "Generous spacing. Use py-24 or py-32 for sections. gap-12 to gap-16 in grids.",
+    "borders": "Radius small (rounded-sm or rounded-md) to keep it elegant and architectural."
+  },
+  "motion": {
+    "libraries": ["framer-motion", "react-fast-marquee"],
+    "hero_reveal": "Masked line-by-line reveal for H1 on load. Staggered fade up for hero image.",
+    "interactions": "Hover states on buttons: button translates up slightly (-translate-y-1) with soft shadow. Image hover: subtle scale in (scale-105) with overflow-hidden."
+  },
+  "layouts": {
+    "hero": "Kinetic hero banner. Large central image (max-h-[80vh] w-full object-cover rounded-md), overlapping Floating Enquiry Box (bottom center, glassmorphism card bridging the image and next section).",
+    "portfolio": "2-column or 3-column asymmetric grid. Images use an Interactive Before/After slider implementation (users can drag to see edited vs unedited).",
+    "roadmap": "Asymmetrical grid. 4 steps (Onboarding, Submission, Processing, Delivery & Revisions). Use massive outline numbers (text-8xl text-transparent border-stroke or text-muted/30) behind or beside the step content.",
+    "pricing": "Comparison table. Use a CSS Grid layout with 1px borders between rows/cols to look like a crisp, technical document. Highlight the 'Standard' tier with a subtle background tint.",
+    "marquee": "Slow editorial ribbon (using react-fast-marquee). Very slow drift. Playfair Display, text-4xl or text-5xl, tracking-widest, displaying 'ELEVATE YOUR ART — RECLAIM YOUR TIME'."
+  },
+  "components": {
+    "navigation": "Sticky glassmorphism header (z-50). Logo left, links center, CTA right.",
+    "floating_chat": "Fixed bottom-right corner (z-50). Simple form-style widget inside a popover/card with a chat icon toggle.",
+    "enquiry_box": "Floating over the hero banner bottom edge. Fields: 'Overwhelmed with editing? Drop your question here!' + simple input + submit button.",
+    "contact_form": "Shadcn form. Fields: Name, Email, Purpose (Dropdown: General Inquiry, Custom Quote, Trial Edit), Message.",
+    "faq": "Shadcn Accordion. Minimalist styling, thin borders. Questions: 'How do I share my Lightroom catalog?', 'What is your typical turnaround time?'."
+  },
+  "media": {
+    "image_urls": {
+      "hero_banner": {
+        "url": "https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxlbGVnYW50JTIwd2VkZGluZyUyMGNvdXBsZSUyMGJyaWdodHxlbnwwfHx8fDE3ODcxNjUwNzF8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Elegant wedding couple kissing - Bright and luxury"
+      },
+      "portfolio_1": {
+        "url": "https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwd2VkZGluZyUyMGNvdXBsZSUyMGJyaWdodHxlbnwwfHx8fDE3ODcxNjUwNzF8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Woman in white wedding dress"
+      },
+      "portfolio_2": {
+        "url": "https://images.unsplash.com/photo-1563170446-9c3c0622d8a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxlZGl0b3JpYWwlMjBwb3J0cmFpdCUyMHBob3RvZ3JhcGh5JTIwYnJpZ2h0fGVufDB8fHx8MTc4NzE2NTA3MXww&ixlib=rb-4.1.0&q=85",
+        "description": "Editorial portrait woman with blue eyes"
+      },
+      "portfolio_3": {
+        "url": "https://images.unsplash.com/photo-1591604466107-ec97de577aff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwd2VkZGluZyUyMGNvdXBsZSUyMGJyaWdodHxlbnwwfHx8fDE3ODcxNjUwNzF8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Man in gray suit and woman in white dress"
+      },
+      "roadmap_bg": {
+        "url": "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxwaG90b2dyYXBoZXIlMjB3b3JraW5nJTIwY2FtZXJhJTIwbGVuc3xlbnwwfHx8fDE3ODcxNjUwNzh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Photographer holding camera lens"
+      }
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install and use Playfair Display (font-serif) for all headings and Manrope (font-sans) for body text from Google Fonts.",
+    "For the Before/After slider in Portfolio, you can create a custom React component using an input type='range' to control the width/clip-path of the 'After' image overlaid on the 'Before' image. Apply grayscale to the 'Before' image state if you don't have separate edited/unedited URLs, to simulate the effect.",
+    "Hero Section: The H1 should use framer-motion to reveal line by line (overflow-hidden wrapper with text translating up).",
+    "Floating Enquiry Box: Position it absolutely overlapping the bottom edge of the hero image. Use z-10 and backdrop-blur.",
+    "Pricing table: Implement a 5-tier comparison table (Basic $100, Basic Plus $140, Standard $250, Premium $450, Custom). Columns: Plan, Max Submitted Images, Final Delivered Count, Revisions, Price, Service Provided.",
+    "Contact Form: Use Shadcn form. Include Name, Email, and a Select dropdown for Purpose.",
+    "Live Chatbox: Fixed positioned at bottom right. Clicking it opens a small card with a form that saves messages.",
+    "All interactive elements MUST include data-testid attributes.",
+    "Implement the smooth scrolling using framer-motion or a custom useScroll hook if lenis isn't available, but prioritize the editorial scroll feel.",
+    "Use Phosphor Icons (@phosphor-icons/react) for elegant, duotone, or thin icons that match the editorial aesthetic."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not center-align the main App container. Left-align content where appropriate.",
+    "Avoid generic 'AI slop' aesthetics (simplistic gradients, uniform styling, tight spacing). Use solid warm colors and high contrast.",
+    "Use 2-3x more spacing than typical. Use p-8, p-16, gap-12 generously.",
+    "Every interaction needs micro-animations (hover states, focus rings).",
+    "Use Shadcn components for forms, inputs, dropdowns, but heavily customize them to match the editorial, flat, thin-border aesthetic. Do NOT use completely transparent backgrounds for dropdowns.",
+    "NEVER use placeholder images from placehold.it or similar. Use the provided Unsplash URLs.",
+    "Apply css_vars provided in the colors section to index.css :root and .dark classes."
+  ]
+}
