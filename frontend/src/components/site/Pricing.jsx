@@ -30,13 +30,13 @@ const GRID = "grid-cols-[1.1fr_0.9fr_0.9fr_0.7fr_1fr_0.8fr_auto]";
 
 export const Pricing = () => {
   const [selected, setSelected] = useState(null);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", studio: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const openFor = (plan) => {
-    setForm({ name: "", email: "", message: "" });
+    setForm({ name: "", email: "", phone: "", studio: "", message: "" });
     setSelected(plan);
   };
 
@@ -53,6 +53,8 @@ export const Pricing = () => {
         price: selected.price,
         name: form.name,
         email: form.email,
+        phone: form.phone,
+        studio: form.studio,
         message: form.message,
       });
       toast.success(`Thanks — your interest in the ${selected.name} plan is on its way to the studio.`);
@@ -193,6 +195,25 @@ export const Pricing = () => {
                 type="email"
                 value={form.email}
                 onChange={(e) => set("email", e.target.value)}
+                className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-xs tracking-[0.12em] uppercase">Contact number</Label>
+              <Input
+                data-testid="plan-phone"
+                type="tel"
+                value={form.phone}
+                onChange={(e) => set("phone", e.target.value)}
+                className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-xs tracking-[0.12em] uppercase">Studio / Photography name</Label>
+              <Input
+                data-testid="plan-studio"
+                value={form.studio}
+                onChange={(e) => set("studio", e.target.value)}
                 className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
               />
             </div>

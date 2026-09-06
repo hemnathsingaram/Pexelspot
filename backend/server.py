@@ -160,6 +160,8 @@ class EnquiryCreate(BaseModel):
 class ContactCreate(BaseModel):
     name: str
     email: EmailStr
+    phone: Optional[str] = ""
+    studio: Optional[str] = ""
     purpose: str
     message: Optional[str] = ""
 
@@ -174,6 +176,8 @@ class PlanSelectionCreate(BaseModel):
     price: str
     name: str
     email: EmailStr
+    phone: Optional[str] = ""
+    studio: Optional[str] = ""
     message: Optional[str] = ""
 
 
@@ -215,6 +219,8 @@ async def create_contact(payload: ContactCreate):
     html = _notify_html("New Contact Request", [
         ("Name", payload.name),
         ("Email", payload.email),
+        ("Contact number", payload.phone or "—"),
+        ("Studio / Photography", payload.studio or "—"),
         ("Purpose", payload.purpose),
         ("Message", payload.message or "—"),
     ])
@@ -232,6 +238,8 @@ async def create_plan_selection(payload: PlanSelectionCreate):
         ("Price", payload.price),
         ("Name", payload.name),
         ("Email", payload.email),
+        ("Contact number", payload.phone or "—"),
+        ("Studio / Photography", payload.studio or "—"),
         ("Message", payload.message or "—"),
     ])
     await send_email(to=OWNER_EMAIL, subject=subject, html=html, reply_to=payload.email)

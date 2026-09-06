@@ -43,7 +43,7 @@ const faqs = [
 const purposes = ["General Inquiry", "Custom Quote", "Trial Edit"];
 
 export const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", purpose: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", studio: "", purpose: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
@@ -58,7 +58,7 @@ export const Contact = () => {
     try {
       await api.post("/contact", form);
       toast.success("Thank you — your request is on its way to the studio.");
-      setForm({ name: "", email: "", purpose: "", message: "" });
+      setForm({ name: "", email: "", phone: "", studio: "", purpose: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
@@ -122,6 +122,27 @@ export const Contact = () => {
                       type="email"
                       value={form.email}
                       onChange={(e) => set("email", e.target.value)}
+                      className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
+                    />
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label className="text-xs tracking-[0.12em] uppercase">Contact number</Label>
+                    <Input
+                      data-testid="contact-phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => set("phone", e.target.value)}
+                      className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-xs tracking-[0.12em] uppercase">Studio / Photography name</Label>
+                    <Input
+                      data-testid="contact-studio"
+                      value={form.studio}
+                      onChange={(e) => set("studio", e.target.value)}
                       className="rounded-sm border-border focus-visible:ring-0 focus-visible:border-foreground h-11"
                     />
                   </div>
