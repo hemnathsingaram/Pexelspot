@@ -5,12 +5,6 @@ import { Reveal, Overline } from "./Reveal";
 const STORY_IMG =
   "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxwaG90b2dyYXBoZXIlMjB3b3JraW5nJTIwY2FtZXJhJTIwbGVuc3xlbnwwfHx8fDE3ODcxNjUwNzh8MA&ixlib=rb-4.1.0&q=85";
 
-const stats = [
-  { k: "500k+", v: "Images retouched" },
-  { k: "48hr", v: "Average turnaround" },
-  { k: "120+", v: "Photographers served" },
-];
-
 export const About = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -41,18 +35,19 @@ export const About = () => {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-3 gap-6 mt-12 border-t border-border pt-8">
-            {stats.map((s, i) => (
-              <Reveal key={s.v} delay={0.15 + i * 0.08}>
-                <div>
-                  <div className="font-serif text-3xl lg:text-4xl tracking-tight">{s.k}</div>
-                  <div className="text-xs tracking-[0.14em] uppercase text-muted-foreground mt-2">
-                    {s.v}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.2}>
+            <div className="flex flex-wrap items-center gap-3 mt-10 border-t border-border pt-8">
+              <span className="text-xs tracking-[0.14em] uppercase text-muted-foreground mr-1">
+                Edited on
+              </span>
+              <span className="text-sm font-medium px-3 py-1.5 rounded-sm border border-border bg-background">
+                Licensed Adobe Lightroom
+              </span>
+              <span className="text-sm font-medium px-3 py-1.5 rounded-sm border border-border bg-background">
+                Adobe Photoshop
+              </span>
+            </div>
+          </Reveal>
         </div>
 
         <div className="lg:col-span-6 order-1 lg:order-2">
