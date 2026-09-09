@@ -29,14 +29,14 @@ export const About = () => {
           <Reveal delay={0.1}>
             <div className="space-y-5 text-base leading-relaxed text-muted-foreground max-w-xl">
               <p>
-                I started retouching for photographers after watching too many friends miss dinners,
-                birthdays and slow Sunday mornings — buried under thousands of RAW files. Editing
-                should protect the life you built your business to enjoy, not eat it alive.
+                With years of dedicated experience editing weddings and portraits, we know exactly
+                how to protect a photographer's signature look while turning galleries around fast.
               </p>
               <p>
-                Before I touch a single frame, we build a colour and skin profile tuned to your look.
-                The result feels like it came straight from your own hand — just delivered days
-                sooner, with a fraction of the fatigue.
+                Every image is culled and edited in <span className="text-foreground font-medium">genuine, licensed Adobe Lightroom</span>,
+                with <span className="text-foreground font-medium">Adobe Photoshop</span> brought in for detailed retouching and any
+                additional work — so your files are handled on professional, fully licensed software
+                from start to finish.
               </p>
             </div>
           </Reveal>
