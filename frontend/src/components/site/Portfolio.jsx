@@ -2,33 +2,16 @@ import { Reveal, Overline } from "./Reveal";
 import { BeforeAfterSlider } from "./BeforeAfterSlider";
 
 const shots = [
-  {
-    id: "wedding-embrace",
-    image:
-      "https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwd2VkZGluZyUyMGNvdXBsZSUyMGJyaWdodHxlbnwwfHx8fDE3ODcxNjUwNzF8MA&ixlib=rb-4.1.0&q=85",
-    title: "The First Look",
-    tag: "Wedding · Warm film",
-    span: "lg:col-span-7",
-    h: "h-[70vh]",
-  },
-  {
-    id: "portrait-editorial",
-    image:
-      "https://images.unsplash.com/photo-1563170446-9c3c0622d8a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxlZGl0b3JpYWwlMjBwb3J0cmFpdCUyMHBob3RvZ3JhcGh5JTIwYnJpZ2h0fGVufDB8fHx8MTc4NzE2NTA3MXww&ixlib=rb-4.1.0&q=85",
-    title: "Studio Portrait",
-    tag: "Portrait · Clean skin",
-    span: "lg:col-span-5",
-    h: "h-[70vh]",
-  },
-  {
-    id: "ceremony-couple",
-    image:
-      "https://images.unsplash.com/photo-1591604466107-ec97de577aff?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwd2VkZGluZyUyMGNvdXBsZSUyMGJyaWdodHxlbnwwfHx8fDE3ODcxNjUwNzF8MA&ixlib=rb-4.1.0&q=85",
-    title: "The Ceremony",
-    tag: "Wedding · Airy pastels",
-    span: "lg:col-span-12",
-    h: "h-[80vh]",
-  },
+  { id: "first-look", image: "https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "The First Look", tag: "Wedding · Warm film", span: "lg:col-span-7", h: "lg:h-[68vh]" },
+  { id: "garden-embrace", image: "https://images.unsplash.com/photo-1580824456266-c578703e13da?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "Garden Embrace", tag: "Wedding · Soft pastels", span: "lg:col-span-5", h: "lg:h-[68vh]" },
+  { id: "the-bouquet", image: "https://images.unsplash.com/photo-1591604442449-ecc9943efabf?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "The Bouquet", tag: "Bridal · Airy light", span: "lg:col-span-4", h: "lg:h-[54vh]" },
+  { id: "vows", image: "https://images.unsplash.com/photo-1672288336066-8cd91b57b510?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "The Vows", tag: "Detail · Golden hour", span: "lg:col-span-4", h: "lg:h-[54vh]" },
+  { id: "the-ring", image: "https://images.unsplash.com/photo-1523369579000-4ec0fe04db44?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "The Ring", tag: "Ceremony · Timeless B&W", span: "lg:col-span-4", h: "lg:h-[54vh]" },
+  { id: "street-portrait", image: "https://images.unsplash.com/photo-1606217239582-d9f72323bcd7?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "City Portrait", tag: "Wedding · Crisp & clean", span: "lg:col-span-5", h: "lg:h-[66vh]" },
+  { id: "the-aisle", image: "https://images.unsplash.com/photo-1606490208247-b65be3d94cd1?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "Down the Aisle", tag: "Wedding · Sunlit tones", span: "lg:col-span-7", h: "lg:h-[66vh]" },
+  { id: "bride-field", image: "https://images.unsplash.com/photo-1693074446713-aad8855c20d7?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "Bride in the Field", tag: "Bridal · Earthy warmth", span: "lg:col-span-7", h: "lg:h-[70vh]" },
+  { id: "window-light", image: "https://images.unsplash.com/photo-1492175742197-ed20dc5a6bed?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "Window Light", tag: "Bridal · Moody edit", span: "lg:col-span-5", h: "lg:h-[70vh]" },
+  { id: "getting-ready", image: "https://images.unsplash.com/photo-1574871786514-46e1680ea587?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400", title: "Getting Ready", tag: "Bridal · Backlit glow", span: "lg:col-span-12", h: "lg:h-[82vh]" },
 ];
 
 export const Portfolio = () => (
@@ -42,16 +25,16 @@ export const Portfolio = () => (
           </h2>
         </div>
         <p className="text-base text-muted-foreground max-w-sm lg:text-right">
-          Every frame below is real client work. Pull the handle across each image to reveal the raw
+          A selection of wedding galleries. Pull the handle across each image to reveal the raw
           capture beneath the finished edit.
         </p>
       </Reveal>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {shots.map((s, i) => (
-          <Reveal key={s.id} delay={i * 0.08} className={s.span}>
+          <Reveal key={s.id} delay={(i % 3) * 0.08} className={s.span}>
             <div className="group">
-              <div className={`w-full ${s.h}`}>
+              <div className={`w-full h-[62vh] ${s.h}`}>
                 <BeforeAfterSlider image={s.image} alt={s.title} testId={`ba-slider-${s.id}`} />
               </div>
               <div className="flex items-center justify-between mt-4">
