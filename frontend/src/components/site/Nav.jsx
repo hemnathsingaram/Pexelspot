@@ -40,11 +40,10 @@ export const Nav = () => {
         <button
           data-testid="nav-logo"
           onClick={() => scrollToTop()}
-          className="flex items-baseline gap-2 group"
+          className="flex items-center group"
         >
-          <span className="font-serif text-xl tracking-tight">Aura</span>
-          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground group-hover:text-foreground transition-colors">
-            Retouch
+          <span className="bg-white rounded-md px-2.5 py-1.5 shadow-sm ring-1 ring-black/5 transition-transform group-hover:-translate-y-0.5">
+            <img src="/logo-header.png" alt="Pexel Spot" className="h-8 w-auto" />
           </span>
         </button>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { X, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -99,7 +99,7 @@ export const ChatWidget = () => {
         onClick={() => setOpen((v) => !v)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="ml-auto flex items-center justify-center h-14 w-14 rounded-full bg-foreground text-background shadow-xl shadow-black/25"
+        className="ml-auto flex items-center justify-center h-14 w-14 rounded-full bg-white text-foreground shadow-xl shadow-black/25 ring-1 ring-black/5"
         aria-label="Open chat"
       >
         <AnimatePresence mode="wait">
@@ -109,7 +109,7 @@ export const ChatWidget = () => {
             </motion.span>
           ) : (
             <motion.span key="c" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-              <MessageCircle className="h-6 w-6" />
+              <img src="/logo-mark.webp" alt="Chat with Pexel Spot" className="h-8 w-8 object-contain" />
             </motion.span>
           )}
         </AnimatePresence>
