@@ -14,6 +14,7 @@ const IMG = {
   lightroom: "https://images.unsplash.com/photo-1455894127589-22f75500213a?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
   photoshop: "https://images.unsplash.com/photo-1645226065134-bd78d2107da7?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
   workspace: "https://images.unsplash.com/photo-1579109652910-99b9be06aaec?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
+  manipulation: "https://images.unsplash.com/photo-1624377103868-c780d0fa2b4c?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
   adobe: "https://images.pexels.com/photos/1336858/pexels-photo-1336858.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1400",
   catalog: "https://images.pexels.com/photos/7679440/pexels-photo-7679440.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1400",
 };
@@ -52,7 +53,7 @@ const services = [
     n: "03",
     title: "Advanced Photo Manipulation",
     kicker: "Rescuing the perfect moment",
-    image: IMG.workspace,
+    image: IMG.manipulation,
     soft: "Photoshop",
     intro:
       "Sometimes the perfect moment happens in an imperfect setting. Our advanced manipulation services rescue great shots from distracting elements.",
