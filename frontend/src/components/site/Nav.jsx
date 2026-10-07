@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import { scrollToSection, scrollToTop } from "../../hooks/useLenis";
 
 const links = [
   { label: "Work", href: "#portfolio" },
   { label: "Studio", href: "#about" },
+  { label: "Services", href: "/services" },
   { label: "Process", href: "#roadmap" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
@@ -15,6 +17,8 @@ const links = [
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,7 +28,27 @@ export const Nav = () => {
 
   const go = (href) => {
     setOpen(false);
-    scrollToSection(href);
+    if (href.startsWith("/")) {
+      navigate(href);
+      window.scrollTo(0, 0);
+      return;
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(href), 450);
+    } else {
+      scrollToSection(href);
+    }
+  };
+
+  const onLogo = () => {
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      window.scrollTo(0, 0);
+    } else {
+      scrollToTop();
+    }
   };
 
   return (
@@ -37,23 +61,23 @@ export const Nav = () => {
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-        <button
-          data-testid="nav-logo"
-          onClick={() => scrollToTop()}
-          className="flex items-center group"
-        >
+        <button data-testid="nav-logo" onClick={onLogo} className="flex items-center group">
           <span className="bg-white rounded-md px-2.5 py-1.5 shadow-sm ring-1 ring-black/5 transition-transform group-hover:-translate-y-0.5">
             <img src="/logo-header.png" alt="Pexel Spot" className="h-8 w-auto" />
           </span>
         </button>
 
-        <div className="hidden md:flex items-center gap-9">
+        <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <button
               key={l.href}
               data-testid={`nav-${l.label.toLowerCase()}`}
               onClick={() => go(l.href)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-foreground hover:after:w-full after:transition-all"
+              className={`text-sm transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-foreground after:transition-all ${
+                l.href === "/services" && location.pathname === "/services"
+                  ? "text-foreground after:w-full"
+                  : "text-muted-foreground hover:text-foreground after:w-0 hover:after:w-full"
+              }`}
             >
               {l.label}
             </button>
@@ -88,11 +112,7 @@ export const Nav = () => {
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {links.map((l) => (
-                <button
-                  key={l.href}
-                  onClick={() => go(l.href)}
-                  className="text-left text-base text-foreground/80"
-                >
+                <button key={l.href} onClick={() => go(l.href)} className="text-left text-base text-foreground/80">
                   {l.label}
                 </button>
               ))}
