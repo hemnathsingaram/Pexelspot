@@ -19,6 +19,7 @@ import { api } from "../../lib/api";
 const cols = ["Plan", "Max submitted", "Final delivered", "Revisions", "Service", "Price", ""];
 
 const plans = [
+  { name: "Remedial", sub: "Pre Basic", max: "Under 500", final: "50 – 80", rev: "1", service: "Culling & editing", price: "$50" },
   { name: "Basic", max: "Up to 1,000", final: "180 – 250", rev: "1", service: "Culling only", price: "$100" },
   { name: "Basic Plus", max: "Up to 1,000", final: "180 – 250", rev: "1", service: "Culling & editing", price: "$140" },
   { name: "Standard", max: "Up to 2,500", final: "300 – 500", rev: "2", service: "Culling & editing", price: "$250", featured: true },
@@ -100,6 +101,11 @@ export const Pricing = () => {
               >
                 <div className="px-6 py-6 flex items-center gap-2">
                   <span className="font-serif text-xl tracking-tight">{p.name}</span>
+                  {p.sub && (
+                    <span className="text-[10px] tracking-[0.12em] uppercase text-muted-foreground">
+                      ({p.sub})
+                    </span>
+                  )}
                   {p.featured && (
                     <span className="text-[10px] tracking-[0.14em] uppercase bg-foreground text-background px-2 py-0.5 rounded-sm">
                       Popular
@@ -132,7 +138,10 @@ export const Pricing = () => {
             <Reveal key={p.name} delay={i * 0.06}>
               <div className={`border border-border rounded-md p-6 bg-background ${p.featured ? "ring-1 ring-foreground" : ""}`}>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-serif text-2xl tracking-tight">{p.name}</span>
+                  <span className="font-serif text-2xl tracking-tight">
+                    {p.name}
+                    {p.sub && <span className="text-xs tracking-[0.12em] uppercase text-muted-foreground ml-2">({p.sub})</span>}
+                  </span>
                   <span className="font-serif text-2xl">{p.price}</span>
                 </div>
                 <ul className="space-y-2 text-sm text-muted-foreground mb-5">
@@ -171,7 +180,7 @@ export const Pricing = () => {
         <DialogContent className="sm:max-w-md rounded-md bg-background" data-testid="plan-dialog">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl tracking-tight">
-              {selected ? `${selected.name} plan` : ""}{" "}
+              {selected ? `${selected.name}${selected.sub ? ` (${selected.sub})` : ""} plan` : ""}{" "}
               <span className="text-muted-foreground">{selected?.price}</span>
             </DialogTitle>
             <DialogDescription>
